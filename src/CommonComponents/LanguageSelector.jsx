@@ -319,47 +319,53 @@ const LanguageSelector = () => {
       {/* Dropdown Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-gradient-to-r from-[var(--dark)]/90 to-[var(--green)] px-6 py-2 rounded-full text-white cursor-pointer transition flex justify-between items-center hover:from-[var(--green)] hover:to-[var(--dark)]/80"
+        className="bg-gradient-to-r from-[var(--dark)]/90 to-[var(--green)] px-4 py-2 md:px-6 md:py-2.5 rounded-full text-white cursor-pointer transition-all flex justify-between items-center hover:from-[var(--green)] hover:to-[var(--dark)]/80 min-w-[110px]"
       >
-        <span className="hidden md:flex items-center gap-3" > Select </span> <LuLanguages /> <BiChevronDown size={22} />
+        <div className="flex items-center gap-2">
+          <LuLanguages size={22} />
+          <span className="font-medium text-sm md:text-base"> 
+            {selectedLanguage === defaultLanguage ? 'English' : selectedLanguage.split(' ')[0]}
+          </span>
+        </div>
+        <BiChevronDown size={22} className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {/* Dropdown List */}
-      {isOpen && (
-        <div className=" absolute z-100 mt-2 w-[250px] bg-white border border-gray-200 rounded-xl animate-in slide-in-from-top-2 duration-200 shadow-2xlbackdrop-blur-md  overflow-hidden  max-h-[320px] flex flex-col right-0 ">
-          {/* Search Bar */}
-          <div className="p-2  sticky top-0 bg-white/0 backdrop-blur-2xl">
-            <div className="relative">
-              <input
-                ref={searchInputRef}
-                type="text"
-                placeholder="Search language..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-2 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--orange)]/30 text-gray-600"
-              />
-              <BiSearch className="absolute left-2 top-3 text-gray-600" size={18} />
-            </div>
-          </div>
-
-          {/* Language List */}
-          <div className="overflow-y-auto flex-grow ">
-            {filteredLanguages.length > 0 ? (
-              filteredLanguages.map((lang) => (
-                <div
-                  key={lang.code}
-                  onClick={() => changeLanguage(lang.code, lang.name)}
-                  className="px-4 py-2 hover:text-white hover:bg-gradient-to-r hover:from-[var(--dark)]/60 hover:to-[var(--dark)]/30  backdrop-blur-3xl text-gray-700 cursor-pointer transition"
-                >
-                  {lang.name}
-                </div>
-              ))
-            ) : (
-              <div className="px-4 py-2 text-gray-500 italic">No languages found</div>
-            )}
+      <div 
+        className={`absolute z-100 mt-2 w-[250px] md:w-[260px] bg-white border border-gray-200 shadow-2xl backdrop-blur-md rounded-xl overflow-hidden flex flex-col right-0 transition-all duration-200 origin-top-right ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+      >
+        {/* Search Bar */}
+        <div className="p-2 sticky top-0 bg-white/90 backdrop-blur-2xl border-b border-gray-100 z-10">
+          <div className="relative">
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search language..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-8 pr-2 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--orange)]/30 text-gray-600 bg-gray-50/50"
+            />
+            <BiSearch className="absolute left-2.5 top-3 text-gray-500" size={18} />
           </div>
         </div>
-      )}
+
+        {/* Language List */}
+        <div className="overflow-y-auto flex-grow max-h-[300px]">
+          {filteredLanguages.length > 0 ? (
+            filteredLanguages.map((lang) => (
+              <div
+                key={lang.code}
+                onClick={() => changeLanguage(lang.code, lang.name)}
+                className="px-4 py-2 hover:text-white hover:bg-gradient-to-r hover:from-[var(--dark)]/60 hover:to-[var(--dark)]/30 backdrop-blur-3xl text-gray-700 cursor-pointer transition-colors"
+              >
+                {lang.name}
+              </div>
+            ))
+          ) : (
+            <div className="px-4 py-3 text-gray-500 italic text-center text-sm">No languages found</div>
+          )}
+        </div>
+      </div>
 
       {/* Hidden Google Translate Widget */}
       <div id="google_translate_element" className="hidden"></div>

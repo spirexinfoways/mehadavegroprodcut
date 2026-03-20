@@ -176,7 +176,7 @@ const Footer = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: false, amount: 0.01 }}
                         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-[10vw] sm:text-[12vw] font-bold leading-none tracking-tighter text-center uppercase pb-2"
+                        className="text-[10vw] sm:text-[8vw] font-bold leading-none tracking-tighter text-center uppercase pb-2"
                         style={{ 
                             fontFamily: "Outfit, sans-serif",
                             letterSpacing: "-0.05em",
@@ -186,7 +186,7 @@ const Footer = () => {
                             backgroundClip: "text",
                         }}
                     >
-                        earth agri
+                        mahadev agro product
                     </motion.h1>
                 </div>
 

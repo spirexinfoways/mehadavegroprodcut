@@ -32,11 +32,11 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/about' element={<AboutPage />} />
+        {/* <Route path='/about' element={<AboutPage />} />
         <Route path='/gallery' element={<GalleryPage />} />
         <Route path='/products' element={<ProductPage />} />
         <Route path='/ebrochure' element={<EBrochurePage />} />
-        <Route path='/contact' element={<ContactPage />} />
+        <Route path='/contact' element={<ContactPage />} /> */}
       </Routes>
       <Footer />
     </div>

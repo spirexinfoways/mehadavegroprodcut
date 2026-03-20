@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const CounterSection = () => {
   const [counters, setCounters] = useState([
@@ -58,80 +59,70 @@ const CounterSection = () => {
   };
 
   return (
-    <div ref={sectionRef} className="bg-white py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div ref={sectionRef} className="bg-white py-24 md:py-32 px-6 md:px-12 border-t border-[#0E6F3A]/10">
+      <div className="max-w-[1400px] mx-auto">
+        
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h1 data-aos="fade-up" className="forum text-4xl md:text-5xl font-bold leading-tight overflow-hidden text-[var(--orange)]">
-            Our Achivements <span className='text-[var(--dark)]'>In Number</span>
-          </h1>
-          <p data-aos="fade-up" className="text-md md:text-lg text-gray-600 md:w-lg font-medium mx-auto leading-relaxed mt-4">
-            Driving global logistics with unmatched reliability.
-            Our proven track record ensures seamless delivery
-            and exceptional service worldwide.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
+          <div className="lg:col-span-7">
+            <div data-aos="fade-up" className="font-inter text-[#C66D42] text-sm tracking-[0.2em] uppercase font-semibold mb-4">
+              Performance Metrics
+            </div>
+            <h2 data-aos="fade-up" className="font-playfair text-4xl md:text-6xl text-[#0E6F3A] leading-[1.1] tracking-tight">
+              Our Achievements <br className="hidden md:block"/><span className="italic text-[#C66D42]">In Numbers</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5 pb-2">
+            <p data-aos="fade-up" data-aos-delay="100" className="font-inter text-gray-600 text-lg leading-relaxed font-light">
+              Driving global logistics with unmatched reliability. Our proven track record ensures seamless delivery and exceptional service worldwide.
+            </p>
+          </div>
         </div>
 
-        {/* Counter Stats - Single Row */}
-        <div data-aos="fade-up" className="font-sans flex flex-col md:flex-row flex-wrap justify-center items-stretch">
+        {/* Counter Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {counters.map((counter, index) => (
-            <React.Fragment key={index}>
-              <div 
-                className="flex flex-col items-center justify-center py-8 md:py-12 px-6 md:px-10 group"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                {/* Stroke Number with Fill Animation */}
-                <div className="relative mb-4 cursor-pointer">
-                  <div className="relative inline-block overflow-hidden">
-                    {/* Background stroke text */}
-                    <span
-                      className="text-6xl md:text-5xl lg:text-8xl font-bold relative inline-block"
-                      style={{
-                        WebkitTextStroke: '2px #1A7D41',
-                        WebkitTextFillColor: 'transparent',
-                        color: 'transparent'
-                      }}
-                    >
-                      {counter.value}{counter.suffix}
-                    </span>
-
-                    {/* Filled text overlay with slide animation */}
-                    <span
-                      className="absolute top-0 left-0 text-6xl md:text-7xl lg:text-8xl font-bold overflow-hidden transition-all duration-700 ease-out"
-                      style={{
-                        WebkitTextStroke: '2px #1A7D41',
-                        WebkitTextFillColor: '#1A7D41',
-                        color: '#1A7D41',
-                        clipPath: hoveredIndex === index ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)',
-                        width: '100%'
-                      }}
-                    >
-                      {counter.value}{counter.suffix}
-                    </span>
-                  </div>
+            <div 
+              key={index}
+              data-aos="fade-up" 
+              data-aos-delay={index * 100}
+              className="flex flex-col items-center justify-center py-16 px-8 group cursor-default"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="relative mb-6 py-2">
+                <div className="relative inline-block">
+                  {/* Full Counter Number */}
+                  <span
+                    className="font-playfair text-7xl md:text-8xl lg:text-[110px] tracking-tighter leading-none block transition-all duration-500"
+                    style={{
+                      WebkitTextStroke: '2px #0E6F3A',
+                      WebkitTextFillColor: hoveredIndex === index ? '#0E6F3A' : 'transparent',
+                      color: hoveredIndex === index ? '#0E6F3A' : 'transparent',
+                      lineHeight: '1.15'
+                    }}
+                  >
+                    {counter.value}{counter.suffix}
+                  </span>
                 </div>
-
-                {/* Label */}
-                <p className="outfit text-base md:text-lg font-semibold text-gray-700 text-center whitespace-nowrap">
-                  {counter.label}
-                </p>
               </div>
 
-              {/* Vertical Divider - Only show between items, not after last one */}
-              {index < counters.length - 1 && (
-                <div className="hidden md:block flex items-center justify-center py-8">
-                  <div className="h-24 md:h-32 w-px bg-gradient-to-b from-transparent via-[var(--orange)] to-transparent"></div>
-                </div>
-              )}
-            </React.Fragment>
+              {/* Label */}
+              <p className="font-playfair text-2xl md:text-3xl text-[#0E6F3A] text-center mb-3 group-hover:text-[#C66D42] transition-colors duration-500">
+                {counter.label}
+              </p>
+              <p className="font-inter text-xs uppercase tracking-[0.2em] text-[#0E6F3A]/50 font-medium text-center">
+                Earth Agri Impex
+              </p>
+            </div>
           ))}
         </div>
-        <div data-aos="fade-up" className="max-w-7xl mx-auto mt-5 text-center">
-          <button className="outfit cursor-pointer cta-button relative px-12 tracking-wider py-4 bg-[var(--orange)] text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105 ">
-            <span className="relative z-10">Contact Us</span>
-            <span className="button-fill"></span>
-          </button>
+
+        {/* Action Button */}
+        <div data-aos="fade-up" className="mt-16 flex justify-center">
+            <button className="font-inter flex items-center justify-center gap-3 px-10 py-5 bg-[#0E6F3A] text-[#F5F2EB] text-sm uppercase tracking-widest hover:bg-[#C66D42] hover:text-white transition-colors duration-500 w-full sm:w-auto group">
+              Contact Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
         </div>
       </div>
     </div>

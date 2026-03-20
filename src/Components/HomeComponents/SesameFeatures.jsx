@@ -1,228 +1,84 @@
-// import React from 'react';
-// import img1 from '../../assets/HomeImg/sesame.png'
-
-// const CircularProgress = ({ percentage, color = 'green', label }) => {
-//   const circumference = 2 * Math.PI * 45; // radius = 45
-//   const strokeDashoffset = circumference - (percentage / 100) * circumference;
-
-//   return (
-//     <div className="flex flex-col items-center">
-//       <div className="relative w-32 h-32">
-//         {/* Background circle */}
-//         <svg className="transform -rotate-90 w-32 h-32">
-//           <circle
-//             cx="64"
-//             cy="64"
-//             r="45"
-//             stroke="#e5e7eb"
-//             strokeWidth="3"
-//             fill="none"
-//           />
-//           {/* Progress circle */}
-//           <circle
-//             cx="64"
-//             cy="64"
-//             r="45"
-//             stroke={color === 'green' ? '#10b981' : '#fbbf24'}
-//             strokeWidth="3"
-//             fill="none"
-//             strokeDasharray={circumference}
-//             strokeDashoffset={strokeDashoffset}
-//             strokeLinecap="round"
-//             className="transition-all duration-1000 ease-out"
-//           />
-//         </svg>
-//         {/* Percentage text */}
-//         <div className="absolute inset-0 flex items-center justify-center">
-//           <span className="text-3xl font-bold text-amber-500">{percentage}%</span>
-//         </div>
-//       </div>
-//       {/* Label */}
-//       <h4 className="mt-2 text-lg font-bold text-gray-900 text-center">{label}</h4>
-//     </div>
-//   );
-// };
-
-// const FeatureItem = ({ title, description }) => {
-//   return (
-//     <div className="mb-10 last:mb-0">
-//       <h3 className="text-2xl font-bold text-[var(--green)] mb-3">{title}</h3>
-//       <p className="text-gray-600 leading-relaxed">{description}</p>
-//     </div>
-//   );
-// };
-
-// const SesameFeatures = () => {
-//   return (
-//     <div className="bg-white relative py-20 px-4 sm:px-6 lg:px-8">
-//       <h1 data-aos="fade-right" className="hidden absolute md:flex flex-col items-center">
-//         <span className="transform -rotate-90 whitespace-nowrap tracking-wide text-(--darkgreen)">EARTH <span className='text-[var(--orange)]'>AGRI IMPEX</span></span>
-//         <span className="border h-12 mt-18"></span>
-//       </h1>
-//       <div className="max-w-7xl mx-auto">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-16 md:gap-0 gap-10 items-center">
-
-//           {/* Left Side - Image with Border Frame */}
-//           <div data-aos="fade-right" className="relative">
-//             {/* Thick yellow/gold border frame */}
-//             <div className="absolute w-70 lg:w-90 h-90 lg:h-110 mx-auto my-auto inset-0 border-14 border-[var(--darkgreen)] z-0"></div>
-
-//             {/* Image container */}
-//             <div className="relative lg:p-8 z-10">
-//               <img
-//                 src={img1}
-//                 alt="Sesame Seeds and Grains"
-//                 className="w-120 lg:w-140 mx-auto object-cover"
-//               />
-//             </div>
-//           </div>
-
-//           {/* Right Side - Content */}
-//           <div className='flex md:flex-row flex-col items-center'>
-//             {/* Features Description */}
-//             <div  data-aos="fade-left" className="md:w-sm p-4">
-//               <FeatureItem
-//                 title="Pure & Organic"
-//                 description="Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Gay direction neglected but supported yet her."
-//               />
-
-//               <FeatureItem
-//                 title="Always Fresh"
-//                 description="Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Gay direction neglected but supported yet her."
-//               />
-//             </div>
-
-//             {/* Circular Progress Indicators */}
-//             <div  data-aos="fade-left" className="grid gap-8 mx-8">
-//               <CircularProgress
-//                 percentage={93}
-//                 color="green"
-//                 label="Organic Solutions"
-//               />
-
-//               <CircularProgress  data-aos="fade-right" 
-//                 percentage={74}
-//                 color="amber"
-//                 label="Quality Agriculture"
-//               />
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SesameFeatures;
-
 import React from 'react';
-import img1 from '../../assets/HomeImg/sesame.png'
+import img1 from '../../assets/HomeImg/sesame.png';
 
-const CircularProgress = ({ percentage, color = 'green', label }) => {
-  const circumference = 2 * Math.PI * 45; // radius = 45
+const CircularProgress = ({ percentage, colorClass, label }) => {
+  const circumference = 2 * Math.PI * 45;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-32 h-32">
-        {/* Background circle */}
-        <svg className="transform -rotate-90 w-32 h-32">
-          <circle
-            cx="64"
-            cy="64"
-            r="45"
-            stroke="#e5e7eb"
-            strokeWidth="3"
-            fill="none"
-          />
+    <div className="flex flex-col items-center group cursor-default">
+      <div className="relative w-32 h-32 mb-6">
+        <svg className="transform -rotate-90 w-32 h-32" viewBox="0 0 128 128">
+          {/* Background circle */}
+          <circle cx="64" cy="64" r="45" stroke="#0E6F3A" strokeWidth="4" strokeOpacity="0.2" fill="#ffffff" />
           {/* Progress circle */}
           <circle
-            cx="64"
-            cy="64"
-            r="45"
-            stroke={color === 'green' ? '#10b981' : '#fbbf24'}
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray={circumference}
-            strokeDashoffset={strokeDashoffset}
+            cx="64" cy="64" r="45"
+            stroke="currentColor" strokeWidth="4" fill="none"
+            strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
             strokeLinecap="round"
-            className="transition-all duration-1000 ease-out"
+            className={`transition-all duration-1000 ease-out ${colorClass}`}
           />
         </svg>
-        {/* Percentage text */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-3xl font-bold text-amber-500">{percentage}%</span>
+          <span className="font-playfair text-3xl text-[#0E6F3A]">{percentage}<span className="font-inter text-xl font-light">%</span></span>
         </div>
       </div>
-      {/* Label */}
-      <h4 className="mt-2 text-lg font-bold text-gray-900 text-center">{label}</h4>
+      <h4 className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold group-hover:text-[#0E6F3A] transition-colors text-center">{label}</h4>
     </div>
   );
 };
 
 const FeatureItem = ({ title, description }) => {
   return (
-    <div className="mb-10 last:mb-0">
-      <h3 className="text-2xl font-bold text-[var(--green)] mb-3">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+    <div className="border-l border-[#0E6F3A]/20 pl-6 py-2 mb-12 hover:border-[#0E6F3A] transition-colors duration-500">
+      <h3 className="font-playfair text-3xl text-[#0E6F3A] mb-4">{title}</h3>
+      <p className="font-inter text-gray-600 font-light leading-relaxed">{description}</p>
     </div>
   );
 };
 
 const SesameFeatures = () => {
   return (
-    <div className="bg-white relative py-20 px-4 sm:px-6 lg:px-8">
-      <h1 data-aos="fade-right" className="hidden absolute md:flex flex-col items-center">
-        <span className="transform -rotate-90 whitespace-nowrap tracking-wide text-(--darkgreen)">EARTH <span className='text-[var(--orange)]'>AGRI IMPEX</span></span>
-        <span className="border h-12 mt-18"></span>
-      </h1>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-16 md:gap-0 gap-10 items-center">
+    <div className="bg-white py-24 md:py-32 px-6 md:px-12 border-t border-[#0E6F3A]/10">
+      <div className="max-w-[1400px] mx-auto relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
-          {/* Left Side - Image with Border Frame */}
-          <div data-aos="fade-right" className="relative">
-            {/* Thick yellow/gold border frame */}
-            <div className="absolute w-70 lg:w-90 h-90 lg:h-110 mx-auto my-auto inset-0 border-14 border-[var(--darkgreen)] z-0"></div>
+          {/* Left Side - Content */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <div data-aos="fade-up" className="font-inter text-[#C66D42] text-sm tracking-[0.2em] uppercase font-semibold mb-6">
+               Why Choose Us
+            </div>
+            <h2 data-aos="fade-up" className="font-playfair text-5xl md:text-6xl text-[#0E6F3A] leading-[1.1] tracking-tight mb-12">
+               Earth Agri Impex <br/> <span className="italic text-[#C66D42]">The Gold Standard</span>
+            </h2>
 
-            {/* Image container */}
-            <div className="relative lg:p-8 z-10">
-              <img
-                src={img1}
-                alt="Sesame Seeds and Grains"
-                className="w-120 lg:w-140 mx-auto object-cover"
+            <div data-aos="fade-up" data-aos-delay="100">
+              <FeatureItem
+                title="Pure & Organic"
+                description="Our oil seeds and spices are sourced from organic farms. Free from heavy pesticides, they retain natural antioxidants, healthy fats, and essential minerals."
+              />
+              <FeatureItem
+                title="Always Fresh"
+                description="Harvested at peak maturity and precisely processed, our products deliver high oil content, superior flavor, and highly digestible organic nutrition."
               />
             </div>
           </div>
 
-          {/* Right Side - Content */}
-          <div className='flex md:flex-row flex-col items-center'>
-            {/* Features Description */}
-            <div  data-aos="fade-left" className="md:w-sm p-4">
-              <FeatureItem
-                title="Pure & Organic"
-                description="Our oil seeds, including white and black sesame, moong (mung beans), and chickpeas, are sourced from organic farms Free from pesticides and chemicals, they retain maximum nutritional value with rich antioxidants, healthy fats, protein, and essential minerals for optimal health."
+          {/* Right Side - Image & Progress */}
+          <div className="lg:col-span-6 relative mt-12 lg:mt-0">
+            <div data-aos="fade-up" className="relative p-4 md:p-8 bg-[#Fffff]/50 ">
+              <img
+                src={img1}
+                alt="Sesame Seeds"
+                className="w-full h-auto object-cover filter contrast-125 saturate-50 mix-blend-multiply"
               />
-
-              <FeatureItem
-                title="Always Fresh"
-                description="Harvested at peak maturity and carefully processed, our white sesame offers high oil content and nutty flavor, black sesame provides superior antioxidants, moong delivers easily digestible protein and chickpeas supply fiber-rich nutrition—ensuring freshness and quality in every batch."
-              />
-            </div>
-
-            {/* Circular Progress Indicators */}
-            <div  data-aos="fade-left" className="grid gap-8 mx-8">
-              <CircularProgress
-                percentage={93}
-                color="green"
-                label="Organic Solutions"
-              />
-
-              <CircularProgress  data-aos="fade-right" 
-                percentage={74}
-                color="amber"
-                label="Quality Agriculture"
-              />
+              
+              {/* Circular Progress Overlay */}
+              <div className="absolute -bottom-10 -left-2 md:-bottom-12 md:-left-12 flex gap-4 md:gap-8 p-6 md:p-8">
+                <CircularProgress percentage={98} colorClass="text-[#0E6F3A]" label="Purity" />
+                <CircularProgress percentage={100} colorClass="text-[#C66D42]" label="Organic" />
+              </div>
             </div>
           </div>
 

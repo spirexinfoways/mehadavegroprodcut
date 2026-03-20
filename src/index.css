@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Forum&family=Gilda+Display&family=Great+Vibes&family=Laila:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Megrim&family=Montserrat:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Outfit:wght@100..900&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light+Two&family=Teachers:ital,wght@0,400..800;1,400..800&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&family=Ysabeau+SC:wght@300&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Forum&family=Gilda+Display&family=Great+Vibes&family=Laila:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Megrim&family=Mukta:wght@200;300;400;500;600;700;800&family=Outfit:wght@100..900&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light+Two&family=Teachers:ital,wght@0,400..800;1,400..800&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&family=Ysabeau+SC:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 :root {
-    --orange : #E37425;
-    --darkgreen : #1A7D41;
-    --green : #67BC45;
-    --dark: #0E6F3A;
-    /* --green : #9ECA3F; */
+  --orange: #E37425;
+  --darkgreen: #1A7D41;
+  --green: #226707b8;
+  --dark: #0E6F3A;
+  /* --green : #9ECA3F; */
 }
 
 .heading {
   font-family: "Shadows Into Light Two", cursive;
+  font-style: normal;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-style: normal;
 }
 
@@ -21,6 +27,16 @@
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .forum {
@@ -40,27 +56,24 @@
 /* https://farmhub-nextjs-rktheme.vercel.app/?storefront=envato-elements */
 
 
-       /* CTA Button Left-Right Fill Effect */
-        .cta-button .button-fill {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: 0;
-          height: 100%;
-          background-color: var(--dark);
-          transform: translateX(-50%);
-          transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 0.5);
-          z-index: 0;
-        }
+/* CTA Button Left-Right Fill Effect */
+.cta-button .button-fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background-color: var(--dark);
+  transform: translateX(-50%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 0.5);
+  z-index: 0;
+}
 
-        .cta-button:hover .button-fill {
-          width: 100%;
-        }
+.cta-button:hover .button-fill {
+  width: 100%;
+}
 
-        .cta-button:not(:hover) .button-fill {
-          width: 0;
-          transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 0.5);
-        }
-
-
-        
+.cta-button:not(:hover) .button-fill {
+  width: 0;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 0.5);
+}

@@ -1,50 +1,42 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // <-- add this if you use React Router
-import bgImg from '../../assets/HomeImg/Vector.png';
+import { useNavigate, Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
-import p1 from '../../assets/products/product (10).jpeg';
-import p2 from '../../assets/products/product (1).jpeg';
-import p3 from '../../assets/products/coriender.jpg';
-import p4 from '../../assets/products/product (7).jpeg';
-import p5 from '../../assets/products/checkpeas.jpg';
-import p6 from '../../assets/products/product (12).jpeg';
-import { Link } from 'react-router-dom';
+import p1 from '../../assets/products/product (10).png';
+import p2 from '../../assets/products/product (1).png';
+import p3 from '../../assets/products/coriender.png';
+import p4 from '../../assets/products/product (4).png';
+import p5 from '../../assets/products/product (2).png';
+import p6 from '../../assets/products/product (12).png';
 
-const ProductCard = ({ image, category, title, bgPosition = 'center', onClick }) => {
+const ProductCard = ({ image, category, title, onClick }) => {
     return (
         <div
             onClick={onClick}
-            className="relative group overflow-hidden shadow-lg h-[400px] md:h-[500px] cursor-pointer"
+            className="group cursor-pointer flex flex-col"
         >
-            {/* Product Image */}
-            <img
-                src={image}
-                alt={title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                style={{ objectPosition: bgPosition }}
-                loading="lazy"
-            />
+            <div className="relative w-full h-[350px] md:h-[450px] overflow-hidden border border-[#0E6F3A]/20 bg-white mb-6">
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover filter saturate-75 contrast-110 group-hover:scale-105 group-hover:saturate-100 transition-all duration-700 ease-out"
+                    loading="lazy"
+                />
+                {/* Minimal Overlay */}
+                <div className="absolute inset-0 bg-[#0E6F3A]/0 group-hover:bg-[#0E6F3A]/10 transition-colors duration-500"></div>
+            </div>
 
-            {/* Dark overlay on hover */}
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
-
-            {/* Text Content with Brush Stroke Background */}
-            <div className="absolute bottom-12 left-12 z-10">
-                {/* Brush stroke behind the text */}
-                <div className="absolute -bottom-18 -left-8 w-55">
-                    <img src={bgImg} alt="" className="rotate-40 opacity-80 w-full" />
-                </div>
-
-                <div className="relative px-5">
-                    {/* <p className="text-amber-500 uppercase tracking-wider text-sm font-semibold">
-                        {category}
-                    </p> */}
-                    <h3
-                        className="text-white text-3xl font-bold mb-5"
-                        style={{ fontFamily: 'Brush Script MT, cursive' }}
-                    >
+            <div className="flex justify-between items-start">
+                <div>
+                    <h3 className="font-playfair text-3xl text-[#0E6F3A] mb-1 group-hover:text-[#C66D42] transition-colors duration-300">
                         {title}
                     </h3>
+                    <p className="font-inter text-xs text-gray-500 uppercase tracking-[0.2em] font-medium">
+                        {category}
+                    </p>
+                </div>
+                <div className="w-10 h-10 rounded-full border border-[#0E6F3A]/20 flex items-center justify-center group-hover:border-[#C66D42] group-hover:bg-[#C66D42] transition-colors duration-300">
+                    <ArrowRight className="w-4 h-4 text-[#0E6F3A] group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
                 </div>
             </div>
         </div>
@@ -52,71 +44,53 @@ const ProductCard = ({ image, category, title, bgPosition = 'center', onClick })
 };
 
 const SesameProductsGrid = () => {
-    // If you use React Router
     const navigate = useNavigate();
 
     const products = [
         { id: 1, image: p1, category: 'SEEDS', title: 'White Sesame', slug: 'white-sesame' },
         { id: 2, image: p2, category: 'SEEDS', title: 'Black Sesame', slug: 'black-sesame' },
-        { id: 3, image: p3, category: 'OIL', title: 'Coriander', slug: 'coriander-oil' },
-        { id: 4, image: p4, category: 'Coriander', title: 'Fenugreek', slug: 'fenugreek' },
-        { id: 5, image: p5, category: 'ORGANIC', title: 'Chickpeas (B2)', slug: 'chickpeas-b2' },
-        { id: 6, image: p6, category: 'ROASTED', title: 'Moong', slug: 'roasted-moong' },
+        { id: 3, image: p3, category: 'SPICE', title: 'Coriander', slug: 'coriander' },
+        { id: 4, image: p4, category: 'SPICE', title: 'Cumin', slug: 'cumin' },
+        { id: 5, image: p5, category: 'PULSE', title: 'Chickpeas', slug: 'chickpeas' },
+        { id: 6, image: p6, category: 'PULSE', title: 'Moong', slug: 'moong' },
     ];
 
-    const handleCardClick = (slug) => {
-        // With React Router (recommended)
-        navigate(`/products`);
-
-        // If you don't use React Router, uncomment the line below:
-        // window.location.href = `/products/${slug}`;
-    };
-
     return (
-        <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-            {/* Header Section */}
-            <div className="max-w-7xl mx-auto mb-12 text-center">
-                <h1
-                    data-aos="fade-up"
-                    className="forum text-4xl md:text-5xl font-bold leading-tight overflow-hidden text-[var(--orange)]"
-                >
-                    Our Premium <span className="text-[var(--dark)]">Products</span>
-                </h1>
-                <p
-                    data-aos="fade-up"
-                    className="text-md md:text-lg text-gray-600 md:w-lg font-medium mx-auto leading-relaxed mt-4"
-                >
-                    Discover our range of high-quality sesame products, sourced from the finest farms
-                </p>
-            </div>
+        <div className="bg-[#Ffffff] py-24 md:py-32 px-6 md:px-12 border-t border-[#0E6F3A]/10">
+            <div className="max-w-[1400px] mx-auto">
+                {/* Header Section */}
+                <div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
+                    <div data-aos="fade-up" className="font-inter text-[#C66D42] text-sm tracking-[0.2em] uppercase font-semibold mb-6">
+                        Catalog
+                    </div>
+                    <h2 data-aos="fade-up" className="font-playfair text-5xl md:text-7xl text-[#0E6F3A] leading-[1.1] tracking-tight mb-8">
+                        Our Premium <span className="italic text-[#C66D42]">Products</span>
+                    </h2>
+                    <p data-aos="fade-up" className="font-inter text-gray-700 text-lg font-light leading-relaxed">
+                        Discover our range of high-quality agricultural exports. Sourced directly from the finest organic farms for global markets.
+                    </p>
+                </div>
 
-            {/* Products Grid */}
-            <div className="max-w-7xl mx-auto">
-                <div
-                    data-aos="fade-up"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                    {products.map((product) => (
-                        <ProductCard
-                            key={product.id}
-                            image={product.image}
-                            category={product.category}
-                            title={product.title}
-                            bgPosition={product.bgPosition || 'center'}
-                            onClick={() => handleCardClick(product.slug)}
-                        />
+                {/* Editorial Products Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                    {products.map((product, idx) => (
+                        <div key={product.id} data-aos="fade-up" data-aos-delay={idx * 100}>
+                            <ProductCard
+                                image={product.image}
+                                category={product.category}
+                                title={product.title}
+                                onClick={() => navigate('/products')}
+                            />
+                        </div>
                     ))}
                 </div>
-            </div>
 
-            {/* Call to Action */}
-            <div data-aos="fade-up" className="max-w-7xl mx-auto mt-16 text-center">
-                <Link to='/products'>
-                    <button className="outfit cursor-pointer cta-button relative px-12 tracking-wider py-4 bg-[var(--orange)] text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105">
-                        <span className="relative z-10">Discover More</span>
-                        <span className="button-fill"></span>
-                    </button>
-                </Link>
+                {/* Call to Action */}
+                <div data-aos="fade-up" className="mt-24 border-t border-[#0E6F3A]/20 pt-16 flex justify-center">
+                    <Link to='/products' className="group font-inter flex items-center justify-center gap-4 px-12 py-5 border border-[#0E6F3A] text-[#0E6F3A] text-sm uppercase tracking-[0.2em] hover:bg-[#0E6F3A] hover:text-[#F5F2EB] transition-colors duration-500">
+                        View Complete Catalog <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Phone, Mail, Package, Sprout, Globe, MessageCircle } from 'lucide-react';
 import bgImg from '../../assets/HomeImg/Vector.png';
-import p1 from '../../assets/products/product (1).jpeg'
-import p2 from '../../assets/products/product (10).jpeg'
+import p1 from '../../assets/products/product (1).png'
+import p2 from '../../assets/products/product (10).png'
 import p3 from '../../assets/products/product (19).jpeg'
 import p4 from '../../assets/products/product (15).jpeg'
-import p5 from '../../assets/products/coriender.jpg'
-import p6 from '../../assets/products/product (4).jpeg'
+import p5 from '../../assets/products/coriender.png'
+import p6 from '../../assets/products/product (4).png'
 import p7 from '../../assets/products/product (6).jpeg'
 import p8 from '../../assets/products/product (7).jpeg'
 import p9 from '../../assets/products/product (13).jpeg'
@@ -14,10 +14,10 @@ import p10 from '../../assets/products/checkpeas.jpg'
 import p11 from '../../assets/products/product (9).jpeg'
 import p12 from '../../assets/products/product (8).jpeg'
 import p13 from '../../assets/products/product (5).jpeg'
-import p14 from '../../assets/products/product (12).jpeg'
+import p14 from '../../assets/products/product (12).png'
 import p15 from '../../assets/products/product (11).jpeg'
 import p16 from '../../assets/products/product (14).jpeg'
-import p17 from '../../assets/products/product (2).jpeg'
+import p17 from '../../assets/products/product (2).png'
 import p18 from '../../assets/products/product (16).jpeg'
 
 const ProductsShowcase = () => {

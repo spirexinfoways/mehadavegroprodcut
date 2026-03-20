@@ -1,186 +1,584 @@
-import React, { useState, useEffect, useMemo } from 'react';
+
+
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+// import { Globe, Menu, X } from 'lucide-react';
+// import logo from '../assets/HomeImg/logo1.png';
+// import headerBg from '../assets/HomeImg/Artboard.png';
+// import LanguageSelector from './LanguageSelector';
+
+// // Define routes for navigation links
+// const navRoutes = {
+//   Home: '/',
+//   About: '/about',
+//   Products: '/products',
+//   Gallery: '/gallery',
+//   EBrochure: '/ebrochure',
+//   Contact: '/contact',
+// };
+
+// const Header = () => {
+//   const [selectedLang, setSelectedLang] = useState('EN');
+//   const [isLangOpen, setIsLangOpen] = useState(false);
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const [activeLink, setActiveLink] = useState('Home'); // Track active link
+
+//   const navLinks = ['Home', 'About', 'Products', 'Gallery', 'EBrochure', 'Contact'];
+//   const languages = ['EN', 'ES', 'FR', 'DE'];
+
+//   return (
+//     <>
+//       <header className="w-full relative z-100">
+//         {/* Background Image */}
+//         <img
+//           src={headerBg}
+//           alt="Header Background"
+//           className="absolute h-75 lg:h-99 w-full inset-0 -z-1"
+//         />
+//         <style>{`
+//           /* Desktop Nav Link Swipe Up Animation */
+//           .nav-link {
+//             position: relative;
+//             cursor: pointer;
+//             color: var(--darkgreen);
+//           }
+
+//           .nav-link .word-container {
+//             position: relative;
+//             display: inline-block;
+//             height: 1.5em;
+//             overflow: hidden;
+//           }
+
+//           .nav-link .word {
+//             display: block;
+//             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+//           }
+
+//           .nav-link:hover .word,
+//           .nav-link.active .word {
+//             transform: translateY(-100%);
+//           }
+
+//           .nav-link .word-duplicate {
+//             position: absolute;
+//             top: 100%;
+//             left: 0;
+//             display: block;
+//             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+//           }
+
+//           .nav-link:hover .word-duplicate,
+//           .nav-link.active .word-duplicate {
+//             transform: translateY(-100%);
+//           }
+
+//           /* Double Underline Effect - fills from center */
+//           .nav-link::before,
+//           .nav-link::after {
+//             content: '';
+//             position: absolute;
+//             bottom: 0;
+//             left: 50%;
+//             width: 0;
+//             height: 2px;
+//             transition: all 0.4s ease;
+//             transform: translateX(-50%);
+//           }
+
+//           .nav-link::before {
+//             bottom: 4px;
+//             background: linear-gradient(90deg, var(--orange), var(--green));
+//           }
+
+//           .nav-link::after {
+//             bottom: 0;
+//             background: linear-gradient(90deg, var(--green), var(--darkgreen));
+//             transition-delay: 0.1s;
+//           }
+
+//           .nav-link:hover::before,
+//           .nav-link:hover::after,
+//           .nav-link.active::before,
+//           .nav-link.active::after {
+//             width: 100%;
+//           }
+
+//           .nav-link.active {
+//             font-weight: 600;
+//           }
+
+//           .logo-gradient {
+//             background: linear-gradient(135deg, var(--orange), var(--green));
+//             -webkit-background-clip: text;
+//             -webkit-text-fill-color: transparent;
+//             background-clip: text;
+//           }
+
+//           .lang-btn {
+//             transition: all 0.3s ease;
+//             border: 2px solid var(--green);
+//           }
+
+//           .lang-btn:hover {
+//             background: linear-gradient(135deg, var(--orange), var(--green));
+//             border-color: var(--orange);
+//             transform: translateY(-2px);
+//             box-shadow: 0 4px 12px rgba(230, 114, 37, 0.3);
+//           }
+
+//           .lang-dropdown {
+//             animation: slideDown 0.3s ease-out;
+//           }
+
+//           @keyframes slideDown {
+//             from {
+//               opacity: 0;
+//               transform: translateY(-10px);
+//             }
+//             to {
+//               opacity: 1;
+//               transform: translateY(0);
+//             }
+//           }
+
+//           .lang-option {
+//             transition: all 0.2s ease;
+//           }
+
+//           .lang-option:hover {
+//             background: linear-gradient(90deg, rgba(230, 114, 37, 0.1), rgba(103, 188, 69, 0.1));
+//             transform: translateX(4px);
+//           }
+
+//           .mobile-menu {
+//             position: fixed;
+//             top: 0;
+//             left: -100%;
+//             width: 280px;
+//             height: 100vh;
+//             background: white;
+//             transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+//             box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+//             z-index: 100;
+//           }
+
+//           .mobile-menu.open {
+//             left: 0;
+//           }
+
+//           .mobile-overlay {
+//             position: fixed;
+//             top: 0;
+//             left: 0;
+//             right: 0;
+//             bottom: 0;
+//             background: rgba(0, 0, 0, 0.5);
+//             opacity: 0;
+//             visibility: hidden;
+//             transition: all 0.3s ease;
+//             z-index: 99;
+//           }
+
+//           .mobile-overlay.open {
+//             opacity: 1;
+//             visibility: visible;
+//           }
+
+//           .mobile-nav-link {
+//             position: relative;
+//             display: block;
+//             padding: 16px 24px;
+//             color: #374151;
+//             font-weight: 500;
+//             transition: all 0.3s ease;
+//             border-left: 3px solid transparent;
+//             border-bottom: 1px solid #e5e7eb;
+//           }
+
+//           .mobile-nav-link:hover {
+//             background: linear-gradient(90deg, rgba(230, 114, 37, 0.1), rgba(103, 188, 69, 0.1));
+//             border-left-color: var(--orange);
+//             padding-left: 32px;
+//           }
+
+//           .mobile-nav-link.active {
+//             background: linear-gradient(90deg, rgba(230, 114, 37, 0.15), rgba(103, 188, 69, 0.15));
+//             border-left-color: var(--orange);
+//             padding-left: 32px;
+//             font-weight: 600;
+//             color: var(--darkgreen);
+//           }
+
+//           .menu-btn {
+//             border: 2px solid var(--green);
+//             transition: all 0.3s ease;
+//           }
+
+//           .menu-btn:hover {
+//             background: linear-gradient(135deg, var(--orange), var(--green));
+//             border-color: var(--orange);
+//             transform: scale(1.05);
+//           }
+//         `}</style>
+
+//         <div className="outfit hidden w-full mx-auto h-10 bg-[var(--dark)] text-white text-sm lg:flex justify-between items-center px-6">
+//           <h1>+91 1234567890 | earthagri@info.com</h1>
+//           <h1>Opening Hours : Sunday- Friday, 08:00 am - 05:00pm</h1>
+//         </div>
+
+//         <nav className="container mx-auto px-4 sm:px-6 py-4">
+//           <div className="flex justify-between items-center">
+//             {/* Logo - Left Side */}
+//             <div className="flex items-center">
+//               <Link to="/">
+//                 <img src={logo} alt="Logo" className="w-28" />
+//               </Link>
+//             </div>
+
+//             {/* Navigation Links - Center (Desktop) */}
+//             <div className="outfit hidden lg:flex items-center space-x-12">
+//               {navLinks.map((link) => (
+//                 <Link
+//                   key={link}
+//                   to={navRoutes[link]}
+//                   className={`nav-link text-lg font-medium ${activeLink === link ? 'active' : ''}`}
+//                   onClick={() => setActiveLink(link)}
+//                 >
+//                   <span className="word-container">
+//                     <span className="word">{link}</span>
+//                     <span className="word-duplicate">{link}</span>
+//                   </span>
+//                 </Link>
+//               ))}
+//             </div>
+
+//             {/* Right Side - Language & Menu */}
+//             <div className="flex items-center space-x-4">
+//               <LanguageSelector />
+
+//               {/* Mobile Menu Button */}
+//               <button
+//                 onClick={() => setIsMobileMenuOpen(true)}
+//                 className="lg:hidden menu-btn p-2 rounded-lg"
+//               >
+//                 <Menu size={24} style={{ color: 'var(--darkgreen)' }} />
+//               </button>
+//             </div>
+//           </div>
+//         </nav>
+//       </header>
+
+//       {/* Mobile Menu Overlay */}
+//       <div
+//         className={`mobile-overlay ${isMobileMenuOpen ? 'open' : ''}`}
+//         onClick={() => setIsMobileMenuOpen(false)}
+//       />
+
+//       {/* Mobile Menu Sidebar */}
+//       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+//         <div className="flex items-center justify-between p-6 border-b border-gray-200">
+//           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+//             <img src={logo} alt="Logo" className="w-30" />
+//           </Link>
+//           <button
+//             onClick={() => setIsMobileMenuOpen(false)}
+//             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+//           >
+//             <X size={24} style={{ color: 'var(--darkgreen)' }} />
+//           </button>
+//         </div>
+
+//         <nav className="py-4">
+//           {navLinks.map((link) => (
+//             <Link
+//               key={link}
+//               to={navRoutes[link]}
+//               className={`mobile-nav-link ${activeLink === link ? 'active' : ''}`}
+//               onClick={() => {
+//                 setActiveLink(link);
+//                 setIsMobileMenuOpen(false);
+//               }}
+//             >
+//               {link}
+//             </Link>
+//           ))}
+//         </nav>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Header;
+
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import {
-  Home, Info, ShoppingBag, Image as GalleryIcon,
-  FileText, Phone, Leaf
-} from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import logo from '../assets/HomeImg/logo1.png';
+import headerBg from '../assets/HomeImg/Artboard.png';
 import LanguageSelector from './LanguageSelector';
 
-const navLinks = [
-  { name: 'Home',      path: '/',          icon: Home },
-  { name: 'About',     path: '/about',     icon: Info },
-  { name: 'Products',  path: '/products',  icon: ShoppingBag },
-  { name: 'Gallery',   path: '/gallery',   icon: GalleryIcon },
-  { name: 'EBrochure', path: '/ebrochure', icon: FileText },
-  { name: 'Contact',   path: '/contact',   icon: Phone },
-];
+const navRoutes = {
+  Home: '/',
+  About: '/about',
+  Products: '/products',
+  Gallery: '/gallery',
+  EBrochure: '/ebrochure',
+  Contact: '/contact',
+};
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('EN');
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('Home');
+
+  const navLinks = ['Home', 'About', 'Products', 'Gallery', 'EBrochure', 'Contact'];
+  const languages = ['EN', 'ES', 'FR', 'DE'];
+
+  // ✅ FIX: Detect current URL and set active link automatically
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 15);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    const currentPath = location.pathname;
 
-  const activeIndex = useMemo(() =>
-    Math.max(navLinks.findIndex(l => l.path === location.pathname), 0),
-    [location.pathname]
-  );
+    const active = Object.keys(navRoutes).find(
+      (key) => navRoutes[key] === currentPath
+    );
 
-  const isActive = (path) => location.pathname === path;
+    if (active) {
+      setActiveLink(active);
+    }
+  }, [location.pathname]);
 
   return (
     <>
-      {/* ==================== DESKTOP TOP NAVBAR ==================== */}
-      <header
-        className={`outfit fixed top-0 left-0 right-0 z-[500] hidden lg:flex items-center transition-all duration-500 ease-in-out ${
-          scrolled
-            ? 'h-[66px] bg-white/80 backdrop-blur-2xl border-b border-green-200/50'
-            : 'h-[82px] bg-transparent'
-        }`}
-        style={scrolled ? { boxShadow: '0 4px 30px rgba(45,125,50,0.10), 0 1px 3px rgba(0,0,0,0.06)' } : {}}
-      >
-        <div className="max-w-[1400px] w-full mx-auto px-8 flex items-center justify-between">
+      <header className="w-full relative z-100">
+        <img
+          src={headerBg}
+          alt="Header Background"
+          className="absolute h-80 lg:h-80 w-full inset-0 -z-1"
+        />
 
-          {/* Logo + Brand Text */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Earth Agri Impex" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
-            
-          </Link>
+        <style>{`
+          .nav-link {
+            position: relative;
+            cursor: pointer;
+            color: var(--darkgreen);
+            display: inline-block;
+          }
+          .nav-link .word-container {
+            position: relative;
+            display: inline-block;
+            height: 1.5em;
+            overflow: hidden;
+            vertical-align: bottom;
+          }
+          .nav-link .word {
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .nav-link:hover .word,
+          .nav-link.active .word {
+            transform: translateY(-100%);
+          }
+          .nav-link .word-duplicate {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: block;
+            background: linear-gradient(to right, var(--orange) 50%, var(--darkgreen) 50%);
+            background-size: 200% 100%;
+            background-position: 100% 0; /* Start at right (var(--darkgreen)) */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-position 0.5s ease-out;
+          }
+          .nav-link:hover .word-duplicate,
+          .nav-link.active .word-duplicate {
+            transform: translateY(-100%);
+            background-position: 0 0; /* Swipe to left (var(--orange)) */
+          }
+          .nav-link.active .word-duplicate {
+            font-weight: 600;
+          }
+          .logo-gradient {
+            background: linear-gradient(135deg, var(--orange), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+          .lang-btn {
+            transition: all 0.3s ease;
+            border: 2px solid var(--green);
+          }
+          .lang-btn:hover {
+            background: linear-gradient(135deg, var(--orange), var(--green));
+            border-color: var(--orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 114, 37, 0.3);
+          }
+          .lang-dropdown {
+            animation: slideDown 0.3s ease-out;
+          }
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .lang-option {
+            transition: all 0.2s ease;
+          }
+          .lang-option:hover {
+            background: linear-gradient(90deg, rgba(230, 114, 37, 0.1), rgba(103, 188, 69, 0.1));
+            transform: translateX(4px);
+          }
+          .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+          }
+          .mobile-menu.open {
+            left: 0;
+          }
+          .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+          }
+          .mobile-overlay.open {
+            opacity: 1;
+            visibility: visible;
+          }
+          .mobile-nav-link {
+            position: relative;
+            display: block;
+            padding: 16px 24px;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            border-bottom: 1px solid #e5e7eb;
+          }
+          .mobile-nav-link:hover {
+            background: linear-gradient(90deg, rgba(230, 114, 37, 0.1), rgba(103, 188, 69, 0.1));
+            border-left-color: var(--orange);
+            padding-left: 32px;
+          }
+          .mobile-nav-link.active {
+            background: linear-gradient(90deg, rgba(230, 114, 37, 0.15), rgba(103, 188, 69, 0.15));
+            border-left-color: var(--orange);
+            padding-left: 32px;
+            font-weight: 600;
+            color: var(--darkgreen);
+          }
+          .menu-btn {
+            border: 2px solid var(--green);
+            transition: all 0.3s ease;
+          }
+          .menu-btn:hover {
+            background: linear-gradient(135deg, var(--orange), var(--green));
+            border-color: var(--orange);
+            transform: scale(1.05);
+          }
+        `}</style>
 
-          {/* Center Nav Links */}
-          <nav className="flex items-center gap-0.5 px-2 py-1.5 rounded-2xl bg-white/70 backdrop-blur-lg border border-green-200/60 shadow-[0_2px_16px_rgba(45,125,50,0.08)]">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`relative flex items-center gap-1.5 px-4 py-[9px] text-[13px] font-medium rounded-xl transition-all duration-300 group ${
-                  isActive(link.path)
-                    ? 'text-white'
-                    : 'text-gray-500 hover:text-green-800'
-                }`}
-              >
-                {/* Active background */}
-                {isActive(link.path) && (
-                  <motion.span
-                    layoutId="activeDesktopPill"
-                    className="absolute inset-0 rounded-xl"
-                    style={{ background: 'linear-gradient(135deg, var(--darkgreen), var(--green))' }}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
+        {/* <div className="outfit hidden w-full mx-auto h-10 bg-[var(--dark)] text-white text-sm lg:flex justify-between items-center px-6">
+          <h1>+91 1234567890 | earthagri@info.com</h1>
+          <h1>Opening Hours : Sunday- Friday, 08:00 am - 05:00pm</h1>
+        </div> */}
 
-                {/* Hover state */}
-                {!isActive(link.path) && (
-                  <span className="absolute inset-0 rounded-xl bg-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                )}
+        <nav className="container mx-auto px-4 sm:px-6">
+          <div className="flex justify-between items-center">
 
-                {/* Icon */}
-                <link.icon
-                  size={14}
-                  className={`relative z-10 transition-colors duration-300 ${
-                    isActive(link.path) ? 'text-lime-300' : 'text-gray-400 group-hover:text-green-600'
-                  }`}
-                />
-
-                {/* Label */}
-                <span className="relative z-10">{link.name}</span>
+            <div className="flex items-center">
+              <Link to="/">
+                <img src={logo} alt="Logo" className="w-25 h-25 transform translate-y-3" />
               </Link>
-            ))}
-          </nav>
+            </div>
 
-          {/* Right: Language Selector */}
-          <div className="flex items-center gap-3">
-            <LanguageSelector />
+            <div className="outfit hidden lg:flex items-center space-x-12 lg:pt-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link}
+                  to={navRoutes[link]}
+                  className={`nav-link text-lg font-medium ${activeLink === link ? 'active' : ''}`}
+                  onClick={() => setActiveLink(link)}
+                >
+                  <span className="word-container">
+                    <span className="word">{link}</span>
+                    <span className="word-duplicate">{link}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="lg:hidden menu-btn p-2 rounded-lg"
+              >
+                <Menu size={24} style={{ color: 'var(--darkgreen)' }} />
+              </button>
+            </div>
           </div>
-        </div>
+        </nav>
       </header>
 
-      {/* Desktop Spacer */}
-      <div className="hidden lg:block h-20" />
+      <div
+        className={`mobile-overlay ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
 
-      {/* ==================== MOBILE TOP THIN BAR ==================== */}
-      <header className="outfit fixed top-0 left-0 right-0 z-[500] lg:hidden flex items-center justify-between px-5 h-14 bg-white/90 backdrop-blur-2xl border-b-2 border-green-100" style={{ boxShadow: '0 2px 20px rgba(45,125,50,0.08)' }}>
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="h-8 w-auto" />
-        </Link>
-        <div className="flex items-center gap-2">
-          {/* Tagline pill */}
-          <span className="hidden sm:flex items-center gap-1 text-[10px] text-green-700 font-medium bg-green-50 border border-green-100 px-2.5 py-1 rounded-full">
-            <Leaf size={11} className="text-green-500" />
-            Earth Agri Impex
-          </span>
-          <LanguageSelector />
-        </div>
-      </header>
-
-      {/* Mobile Top Spacer */}
-      <div className="lg:hidden h-14" />
-
-      {/* ==================== MOBILE BOTTOM MAGIC NAV ==================== */}
-      <div className="lg:hidden fixed bottom-3 left-0 right-0 z-[500] px-5">
-        <div
-          className="relative w-full mx-auto rounded-[28px] h-[64px]"
-          style={{
-            background: 'linear-gradient(135deg, #14381a 0%, #27692c 60%, #2d7d32 100%)',
-            boxShadow: '0 -4px 30px rgba(20,56,26,0.3), 0 8px 30px rgba(20,56,26,0.5), inset 0 1px 0 rgba(255,255,255,0.08)'
-          }}
-        >
-          {/* Floating Bubble */}
-          <motion.div
-            className="absolute z-20"
-            initial={false}
-            animate={{
-              left: `calc(${activeIndex * (100 / navLinks.length)}% + ${(100 / navLinks.length / 2)}% - 26px)`
-            }}
-            transition={{ type: 'spring', stiffness: 200, damping: 22 }}
-            style={{ top: '-20px' }}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <img src={logo} alt="Logo" className="w-30" />
+          </Link>
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
-            <div
-              className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, #a8e063, #56ab2f)',
-                boxShadow: '0 6px 20px rgba(86,171,47,0.5)',
+            <X size={24} style={{ color: 'var(--darkgreen)' }} />
+          </button>
+        </div>
+
+        <nav className="py-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link}
+              to={navRoutes[link]}
+              className={`mobile-nav-link ${activeLink === link ? 'active' : ''}`}
+              onClick={() => {
+                setActiveLink(link);
+                setIsMobileMenuOpen(false);
               }}
             >
-              {React.createElement(navLinks[activeIndex].icon, { size: 22, className: 'text-white drop-shadow-sm' })}
-            </div>
-            {/* Small label below bubble */}
-            <p className="text-center text-[9px] font-bold text-lime-300 mt-0.5 uppercase tracking-wider">
-              {navLinks[activeIndex].name}
-            </p>
-          </motion.div>
-
-          {/* Nav items */}
-          <div className="flex items-center justify-around h-full px-3">
-            {navLinks.map((link, i) => {
-              const active = activeIndex === i;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="relative flex flex-col items-center justify-center flex-1 h-full"
-                >
-                  <motion.div
-                    animate={{ opacity: active ? 0 : 0.7, y: active ? -5 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <link.icon size={20} color="white" />
-                  </motion.div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+              {link}
+            </Link>
+          ))}
+        </nav>
       </div>
-
-      {/* Mobile Bottom Spacer */}
-      <div className="lg:hidden h-20" />
     </>
   );
 };
