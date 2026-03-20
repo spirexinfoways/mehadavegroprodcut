@@ -38,7 +38,7 @@ const AboutUs = () => {
           <div data-aos="fade-up" className="md:col-span-12 lg:col-span-10 lg:col-start-2 z-20 md:mb-8">
             <h2 className="text-[#0E6F3A] text-5xl md:text-7xl lg:text-[100px] font-playfair leading-[1.05] tracking-tight">
               Premium Sesame<span className="hidden md:inline">,</span> <br className="hidden md:block"/> 
-              <span className="italic font-light text-[#C66D42] mr-4">From Earth Agri</span> 
+              <span className="italic font-light text-[#C66D42] mr-4">From Mahadev Agro Product</span> 
               <span className="block md:inline mt-2 md:mt-0">to Worldwide.</span>
             </h2>
           </div>
@@ -57,7 +57,7 @@ const AboutUs = () => {
           {/* Content & Features */}
           <div data-aos="fade-up" data-aos-delay="200" className="md:col-span-6 lg:col-span-4 lg:col-start-8 flex flex-col justify-center pt-8 md:pt-16 lg:pt-32">
              <p className="font-inter text-[#2d4a36] text-lg lg:text-xl leading-relaxed font-light mb-16 px-4 md:px-0 border-l border-[#0E6F3A]/30 ml-2 md:ml-0 pl-6 md:pl-0 md:border-none">
-                At Earth Agri Impex, we are dedicated suppliers of premium-quality sesame seeds, sourced directly from trusted farmers and processed with the highest standards of purity. We ensure freshness, flavor, and nutrition in every grain.
+                At Mahadev Agro Product, we are dedicated suppliers of premium-quality sesame seeds, sourced directly from trusted farmers and processed with the highest standards of purity. We ensure freshness, flavor, and nutrition in every grain.
              </p>
 
              <div className="space-y-0">
@@ -94,7 +94,7 @@ const AboutUs = () => {
                  Cultivating <span className="italic text-[#C66D42]">25 Million</span> Tonnes of Growth and Harvest.
              </div>
              <div className="font-inter text-xs md:text-sm uppercase tracking-[0.3em] text-[#0E6F3A]/60 font-semibold mb-2">
-                 Global Reach • Earth Agri Impex
+                 Global Reach • Mahadev Agro Product
              </div>
           </div> */}
           

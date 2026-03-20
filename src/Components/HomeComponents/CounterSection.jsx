@@ -112,7 +112,7 @@ const CounterSection = () => {
                 {counter.label}
               </p>
               <p className="font-inter text-xs uppercase tracking-[0.2em] text-[#0E6F3A]/50 font-medium text-center">
-                Earth Agri Impex
+                Mahadev Agro Product
               </p>
             </div>
           ))}

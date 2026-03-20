@@ -9,7 +9,7 @@ const AboutPage = () => {
     return (
         <div className='overflow-hidden outfit'>
             <DynamicPageHeader
-                title="About Earth Agri Impex"
+                title="About Mahadev Agro Product"
                 breadcrumbs={[
                     { label: "Home", href: "/" },
                     { label: "About Us" }

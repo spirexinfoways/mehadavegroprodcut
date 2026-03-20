@@ -87,7 +87,7 @@ const Footer = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
-                                Earth Agri Impex ™
+                                Mahadev Agro Product ™
                             </motion.h2>
                             <p className="text-gray-500 text-sm">Sowing Trust, Growing Quality</p>
                         </div>
@@ -195,7 +195,7 @@ const Footer = () => {
                     variants={itemVariants}
                     className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest gap-4"
                 >
-                    <p className="text-center md:text-left">© 2025 Earth Agri Impex. All rights reserved.</p>
+                    <p className="text-center md:text-left">© 2025 Mahadev Agro Product. All rights reserved.</p>
                     <div className="flex gap-6">
                         {['Instagram', 'Twitter', 'Linked In'].map((platform) => (
                             <a 

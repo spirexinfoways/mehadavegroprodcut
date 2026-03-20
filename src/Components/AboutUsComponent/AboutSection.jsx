@@ -129,7 +129,7 @@ const AboutUs = () => {
        <div className="text-center mb-16">
           <h2 data-aos="fade-up" className="forum text-4xl md:text-6xl font-bold leading-tight">
             <span className="text-[var(--orange)] block">Premium Quality from</span>
-            <span className="text-[var(--darkgreen)] block text-5xl md:text-7xl">Earth Agri Impex</span>
+            <span className="text-[var(--darkgreen)] block text-5xl md:text-7xl">Mahadev Agro Product</span>
           </h2>
         </div>
 
@@ -178,7 +178,7 @@ const AboutUs = () => {
           {/* Right Side - Text Content */}
           <div data-aos="fade-left" className="space-y-6 text-gray-600 text-base lg:text-lg leading-relaxed">
             <p>
-              <strong className="text-[var(--darkgreen)]">Earth Agri Impex</strong>, established in <strong>2024</strong>, is an ISO 22000:2018 certified company, committed to delivering high-quality agricultural commodities that meet international food safety standards. Based in the agriculturally rich Saurashtra region of Gujarat, India, we specialize in sourcing, cleaning, processing, and exporting premium-quality seeds and grains to global markets.
+              <strong className="text-[var(--darkgreen)]">Mahadev Agro Product</strong>, established in <strong>2024</strong>, is an ISO 22000:2018 certified company, committed to delivering high-quality agricultural commodities that meet international food safety standards. Based in the agriculturally rich Saurashtra region of Gujarat, India, we specialize in sourcing, cleaning, processing, and exporting premium-quality seeds and grains to global markets.
             </p>
             <p>
               Our roots go back to <strong>2002</strong>, when we began our journey as <strong>Vijay Trading Co.</strong>, trading agriculture commodities. With over two decades of experience in the agricultural market, we have expanded from trading to manufacturing and customized packaging.

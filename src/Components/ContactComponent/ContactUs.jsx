@@ -126,7 +126,7 @@ export default function ContactComponent() {
                                             value={formData.name}
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-(--orange) focus:border-transparent outline-none transition"
-                                            placeholder="Earth Agri Impex"
+                                            placeholder="Mahadev Agro Product"
                                         />
                                     </div>
 

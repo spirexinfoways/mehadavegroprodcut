@@ -216,7 +216,7 @@ const WhyChooseUs = () => {
             Why Choose Us
           </p>
           <h2 data-aos="fade-up" className="forum text-3xl md:text-5xl font-bold leading-tight overflow-hidden text-[var(--orange)]">
-            Why Choose <span className='text-[var(--dark)] block'>Earth Agri Impex?</span>
+            Why Choose <span className='text-[var(--dark)] block'>Mahadev Agro Product?</span>
           </h2>
         </div>
 

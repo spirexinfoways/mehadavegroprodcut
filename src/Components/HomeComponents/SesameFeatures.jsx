@@ -50,7 +50,7 @@ const SesameFeatures = () => {
                Why Choose Us
             </div>
             <h2 data-aos="fade-up" className="font-playfair text-5xl md:text-6xl text-[#0E6F3A] leading-[1.1] tracking-tight mb-12">
-               Earth Agri Impex <br/> <span className="italic text-[#C66D42]">The Gold Standard</span>
+               Mahadev Agro Product <br/> <span className="italic text-[#C66D42]">The Gold Standard</span>
             </h2>
 
             <div data-aos="fade-up" data-aos-delay="100">
