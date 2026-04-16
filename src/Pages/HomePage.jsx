@@ -6,6 +6,9 @@ import SesameProductsGrid from './../Components/HomeComponents/SesameProductsGri
 import SesameFeatures from './../Components/HomeComponents/SesameFeatures';
 import FAQComponent from './../Components/HomeComponents/FAQComponent';
 import CounterSection from './../Components/HomeComponents/CounterSection';
+import OurCoreValues from '../Components/HomeComponents/OurCoreValues';
+import Testimonial from '../Components/HomeComponents/Testimonial';
+import WhyChooseUs from '../Components/AboutUsComponent/WhyChooseUs';
 
 const HomePage = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -25,18 +28,20 @@ const HomePage = () => {
   };
 
   return (
-    <div className='font-inter overflow-x-hidden bg-white'>
+    <div className='outfit overflow-x-hidden bg-[var(--bg-color)]'>
       <HeroSlider />
       <AboutUs />
       <CounterSection />
       <SesameProductsGrid />
       <SesameFeatures />
+      <OurCoreValues />
       <FAQComponent />
+      <Testimonial />
 
       {/* Floating Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 left-8 z-50 w-14 h-14 bg-[#0E6F3A] text-white flex items-center justify-center shadow-2xl transition-all duration-500 cursor-pointer group hover:bg-[#C66D42] ${
+        className={`fixed bottom-8 left-8 z-50 w-14 h-14 bg-[var(--green)] text-white flex items-center justify-center shadow-2xl transition-all duration-500 cursor-pointer group hover:bg-[var(--orange)] ${
           showScrollTop 
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 translate-y-4 pointer-events-none'

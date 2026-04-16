@@ -59,21 +59,21 @@ const CounterSection = () => {
   };
 
   return (
-    <div ref={sectionRef} className="bg-white py-24 md:py-32 px-6 md:px-12 border-t border-[#0E6F3A]/10">
+    <div ref={sectionRef} className="py-24 md:py-32 px-6 md:px-12 border-t border-[var(--green)]/10">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
           <div className="lg:col-span-7">
-            <div data-aos="fade-up" className="font-inter text-[#C66D42] text-sm tracking-[0.2em] uppercase font-semibold mb-4">
+            <div data-aos="fade-up" className="outfit text-[var(--orange)] text-sm tracking-[0.2em] uppercase font-semibold mb-4">
               Performance Metrics
             </div>
-            <h2 data-aos="fade-up" className="font-playfair text-4xl md:text-6xl text-[#0E6F3A] leading-[1.1] tracking-tight">
-              Our Achievements <br className="hidden md:block"/><span className="italic text-[#C66D42]">In Numbers</span>
+            <h2 data-aos="fade-up" className="outfit text-4xl md:text-6xl text-[var(--green)] leading-[1.1] tracking-tight">
+              Our Achievements <br className="hidden md:block"/><span className="italic text-[var(--orange)]">In Numbers</span>
             </h2>
           </div>
           <div className="lg:col-span-5 pb-2">
-            <p data-aos="fade-up" data-aos-delay="100" className="font-inter text-gray-600 text-lg leading-relaxed font-light">
+            <p data-aos="fade-up" data-aos-delay="100" className="outfit text-gray-600 text-lg leading-relaxed font-light">
               Driving global logistics with unmatched reliability. Our proven track record ensures seamless delivery and exceptional service worldwide.
             </p>
           </div>
@@ -86,7 +86,7 @@ const CounterSection = () => {
               key={index}
               data-aos="fade-up" 
               data-aos-delay={index * 100}
-              className="flex flex-col items-center justify-center py-16 px-8 group cursor-default"
+              className="flex flex-col items-center justify-center py-8 sm:py-16 px-4 sm:px-8 group cursor-default"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -94,11 +94,8 @@ const CounterSection = () => {
                 <div className="relative inline-block">
                   {/* Full Counter Number */}
                   <span
-                    className="font-playfair text-7xl md:text-8xl lg:text-[110px] tracking-tighter leading-none block transition-all duration-500"
+                    className="outfit text-6xl sm:text-7xl md:text-8xl lg:text-[110px] tracking-tighter leading-none block transition-all duration-500 text-[var(--green)] group-hover:text-[var(--orange)]"
                     style={{
-                      WebkitTextStroke: '2px #0E6F3A',
-                      WebkitTextFillColor: hoveredIndex === index ? '#0E6F3A' : 'transparent',
-                      color: hoveredIndex === index ? '#0E6F3A' : 'transparent',
                       lineHeight: '1.15'
                     }}
                   >
@@ -108,10 +105,10 @@ const CounterSection = () => {
               </div>
 
               {/* Label */}
-              <p className="font-playfair text-2xl md:text-3xl text-[#0E6F3A] text-center mb-3 group-hover:text-[#C66D42] transition-colors duration-500">
+              <p className="outfit text-xl sm:text-2xl md:text-3xl text-[var(--green)] text-center mb-2 sm:mb-3 group-hover:text-[var(--orange)] transition-colors duration-500">
                 {counter.label}
               </p>
-              <p className="font-inter text-xs uppercase tracking-[0.2em] text-[#0E6F3A]/50 font-medium text-center">
+              <p className="outfit text-xs uppercase tracking-[0.2em] text-[var(--green)]/50 font-medium text-center">
                 Mahadev Agro Product
               </p>
             </div>
@@ -120,7 +117,7 @@ const CounterSection = () => {
 
         {/* Action Button */}
         <div data-aos="fade-up" className="mt-16 flex justify-center">
-            <button className="font-inter flex items-center justify-center gap-3 px-10 py-5 bg-[#0E6F3A] text-[#F5F2EB] text-sm uppercase tracking-widest hover:bg-[#C66D42] hover:text-white transition-colors duration-500 w-full sm:w-auto group">
+            <button className="outfit flex items-center justify-center gap-3 px-10 py-5 bg-[var(--green)] text-[#F5F2EB] text-sm uppercase tracking-widest hover:bg-[var(--orange)] hover:text-white transition-colors duration-500 w-full sm:w-auto group">
               Contact Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
         </div>

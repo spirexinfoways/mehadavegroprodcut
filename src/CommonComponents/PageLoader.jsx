@@ -50,7 +50,7 @@ const PageLoader = ({ children }) => {
         {/* Background giant text watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <span
-            className="font-playfair text-[20vw] font-bold text-[#0E6F3A] leading-none tracking-tighter"
+            className="outfit text-[20vw] font-bold text-[var(--green)] leading-none tracking-tighter"
             style={{ opacity: 0.04 }}
           >
             LOADING
@@ -58,9 +58,9 @@ const PageLoader = ({ children }) => {
         </div>
 
         {/* Thin horizontal progress line at top */}
-        <div className="absolute top-0 left-0 h-[2px] bg-[#0E6F3A]/10 w-full">
+        <div className="absolute top-0 left-0 h-[2px] bg-[var(--green)]/10 w-full">
           <div
-            className="h-full bg-[#0E6F3A] transition-none"
+            className="h-full bg-[var(--green)] transition-none"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -75,10 +75,10 @@ const PageLoader = ({ children }) => {
               className="absolute"
               style={{ transform: 'rotate(-90deg)' }}
             >
-              <circle cx="70" cy="70" r="54" stroke="#0E6F3A" strokeWidth="1" strokeOpacity="0.12" fill="none" />
+              <circle cx="70" cy="70" r="54" stroke="var(--green)" strokeWidth="1" strokeOpacity="0.12" fill="none" />
               <circle
                 cx="70" cy="70" r="54"
-                stroke="#C66D42"
+                stroke="var(--orange)"
                 strokeWidth="1.5"
                 fill="none"
                 strokeDasharray={circumference}
@@ -92,10 +92,10 @@ const PageLoader = ({ children }) => {
 
           {/* Brand name – editorial style */}
           <div className="text-center">
-            <h1 className="font-playfair text-3xl md:text-4xl text-[#0E6F3A] leading-snug">
-              mahadev agro <span className="italic text-[#C66D42]">product</span>
+            <h1 className="outfit text-3xl md:text-4xl text-[var(--green)] leading-snug">
+              mahadev agro <span className="italic text-[var(--orange)]">product</span>
             </h1>
-            <p className="font-inter text-xs uppercase tracking-[0.3em] text-[#0E6F3A]/50 font-medium">
+            <p className="outfit text-xs uppercase tracking-[0.3em] text-[var(--green)]/50 font-medium">
               Premium Agricultural Exports
             </p>
           </div>
@@ -105,7 +105,7 @@ const PageLoader = ({ children }) => {
             {[0, 1, 2].map((i) => (
               <span
                 key={i}
-                className="w-1.5 h-1.5 rounded-full bg-[#0E6F3A]"
+                className="w-1.5 h-1.5 rounded-full bg-[var(--green)]"
                 style={{
                   animation: `loaderDot 1.4s ease-in-out ${i * 0.2}s infinite`,
                   opacity: 0.3
@@ -117,18 +117,18 @@ const PageLoader = ({ children }) => {
 
         {/* Bottom-right countdown */}
         <div className="absolute bottom-8 right-8 flex flex-col items-end gap-1">
-          <div className="font-playfair text-[clamp(3rem,8vw,6rem)] leading-none text-[#0E6F3A] font-bold tracking-tighter">
+          <div className="outfit text-[clamp(3rem,8vw,6rem)] leading-none text-[var(--green)] font-bold tracking-tighter">
             {String(progress).padStart(2, '0')}
-            <span className="font-inter text-2xl md:text-3xl font-light text-[#C66D42]">%</span>
+            <span className="outfit text-2xl md:text-3xl font-light text-[var(--orange)]">%</span>
           </div>
-          <p className="font-inter text-[10px] uppercase tracking-[0.25em] text-[#0E6F3A]/40">
+          <p className="outfit text-[10px] uppercase tracking-[0.25em] text-[var(--green)]/40">
             Loading assets
           </p>
         </div>
 
         {/* Bottom-left edition tag */}
         <div className="absolute bottom-8 left-8">
-          <p className="font-inter text-[10px] uppercase tracking-[0.25em] text-[#0E6F3A]/30">
+          <p className="outfit text-[10px] uppercase tracking-[0.25em] text-[var(--green)]/30">
             Est. 2024 &nbsp;•&nbsp; Worldwide Export
           </p>
         </div>

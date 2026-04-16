@@ -15,7 +15,7 @@ const ProductCard = ({ image, category, title, onClick }) => {
             onClick={onClick}
             className="group cursor-pointer flex flex-col"
         >
-            <div className="relative w-full h-[350px] md:h-[450px] overflow-hidden border border-[#0E6F3A]/20 bg-white mb-6">
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] overflow-hidden border border-[var(--green)]/20 bg-white mb-6">
                 <img
                     src={image}
                     alt={title}
@@ -23,20 +23,20 @@ const ProductCard = ({ image, category, title, onClick }) => {
                     loading="lazy"
                 />
                 {/* Minimal Overlay */}
-                <div className="absolute inset-0 bg-[#0E6F3A]/0 group-hover:bg-[#0E6F3A]/10 transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-[var(--green)]/0 group-hover:bg-[var(--green)]/10 transition-colors duration-500"></div>
             </div>
 
             <div className="flex justify-between items-start">
                 <div>
-                    <h3 className="font-playfair text-3xl text-[#0E6F3A] mb-1 group-hover:text-[#C66D42] transition-colors duration-300">
+                    <h3 className="outfit text-2xl sm:text-3xl text-[var(--green)] mb-1 group-hover:text-[var(--orange)] transition-colors duration-300">
                         {title}
                     </h3>
-                    <p className="font-inter text-xs text-gray-500 uppercase tracking-[0.2em] font-medium">
+                    <p className="outfit text-xs text-gray-500 uppercase tracking-[0.2em] font-medium">
                         {category}
                     </p>
                 </div>
-                <div className="w-10 h-10 rounded-full border border-[#0E6F3A]/20 flex items-center justify-center group-hover:border-[#C66D42] group-hover:bg-[#C66D42] transition-colors duration-300">
-                    <ArrowRight className="w-4 h-4 text-[#0E6F3A] group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
+                <div className="w-10 h-10 rounded-full border border-[var(--green)]/20 flex items-center justify-center group-hover:border-[var(--orange)] group-hover:bg-[var(--orange)] transition-colors duration-300">
+                    <ArrowRight className="w-4 h-4 text-[var(--green)] group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
                 </div>
             </div>
         </div>
@@ -56,17 +56,17 @@ const SesameProductsGrid = () => {
     ];
 
     return (
-        <div className="bg-[#Ffffff] py-24 md:py-32 px-6 md:px-12 border-t border-[#0E6F3A]/10">
+        <div className="py-24 md:py-32 px-6 md:px-12 border-t border-[var(--green)]/10">
             <div className="max-w-[1400px] mx-auto">
                 {/* Header Section */}
                 <div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
-                    <div data-aos="fade-up" className="font-inter text-[#C66D42] text-sm tracking-[0.2em] uppercase font-semibold mb-6">
+                    <div data-aos="fade-up" className="outfit text-[var(--orange)] text-sm tracking-[0.2em] uppercase font-semibold mb-6">
                         Catalog
                     </div>
-                    <h2 data-aos="fade-up" className="font-playfair text-5xl md:text-7xl text-[#0E6F3A] leading-[1.1] tracking-tight mb-8">
-                        Our Premium <span className="italic text-[#C66D42]">Products</span>
+                    <h2 data-aos="fade-up" className="outfit text-4xl sm:text-5xl md:text-7xl text-[var(--green)] leading-[1.1] tracking-tight mb-8">
+                        Our Premium <span className="italic text-[var(--orange)]">Products</span>
                     </h2>
-                    <p data-aos="fade-up" className="font-inter text-gray-700 text-lg font-light leading-relaxed">
+                    <p data-aos="fade-up" className="outfit text-gray-700 text-lg font-light leading-relaxed">
                         Discover our range of high-quality agricultural exports. Sourced directly from the finest organic farms for global markets.
                     </p>
                 </div>
@@ -86,8 +86,8 @@ const SesameProductsGrid = () => {
                 </div>
 
                 {/* Call to Action */}
-                <div data-aos="fade-up" className="mt-24 border-t border-[#0E6F3A]/20 pt-16 flex justify-center">
-                    <Link to='/products' className="group font-inter flex items-center justify-center gap-4 px-12 py-5 border border-[#0E6F3A] text-[#0E6F3A] text-sm uppercase tracking-[0.2em] hover:bg-[#0E6F3A] hover:text-[#F5F2EB] transition-colors duration-500">
+                <div data-aos="fade-up" className="mt-24 border-t border-[var(--green)]/20 pt-16 flex justify-center">
+                    <Link to='/products' className="group outfit flex items-center justify-center gap-4 px-8 py-4 sm:px-12 sm:py-5 border border-[var(--green)] text-[var(--green)] text-sm uppercase tracking-[0.2em] hover:bg-[var(--green)] hover:text-[#F5F2EB] transition-colors duration-500 text-center">
                         View Complete Catalog <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>

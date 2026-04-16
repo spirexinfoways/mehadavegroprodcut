@@ -47,7 +47,7 @@ const HeroSlider = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-[450px] md:h-screen overflow-hidden group/slider border-b-2 border-transparent">
+        <div className="relative w-full h-[100dvh] min-h-[600px] md:h-screen overflow-hidden group/slider border-b-2 border-transparent">
             {/* <img src={leaves} alt="" className='hidden md:block absolute z-20 w-40 md:w-60 lg:w-90 top-11 md:-top-2 opacity-90 ' /> */}
 
             {/* Background Images with Smooth Transition */}
@@ -115,14 +115,14 @@ const HeroSlider = () => {
             {/* Content Container */}
             <div className="relative h-full flex items-center z-20 pointer-events-none">
                 <div className="container mx-auto px-6 md:px-12 lg:px-24 pointer-events-auto">
-                    <div className="max-w-3xl">
+                    <div className="max-w-3xl pt-16 md:pt-0">
                         {/* Small Top Badge */}
-                        <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 overflow-hidden animate-slideIn">
-                            <span className="relative flex h-3 w-3">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 md:mb-8 overflow-hidden animate-slideIn">
+                            <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--orange)] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-[var(--orange)]"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-[var(--orange)]"></span>
                             </span>
-                            <span className="outfit text-white text-xs md:text-sm font-semibold tracking-widest uppercase">
+                            <span className="outfit text-white text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase">
                                 {slides[currentSlide].badge}
                             </span>
                         </div>
@@ -131,7 +131,7 @@ const HeroSlider = () => {
                         <div className="overflow-hidden">
                             <h1
                                 key={currentSlide}
-                                className="montserrat text-5xl md:text-7xl lg:text-[85px] font-bold text-white mb-6 leading-[1.1] animate-slideIn tracking-tight drop-shadow-xl"
+                                className="outfit text-4xl sm:text-5xl md:text-7xl lg:text-[85px] font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-[1.1] animate-slideIn tracking-tight drop-shadow-xl"
                             >
                                 {slides[currentSlide].title}
                             </h1>
@@ -141,19 +141,19 @@ const HeroSlider = () => {
                         <div className="overflow-hidden">
                             <p
                                 key={`desc-${currentSlide}`}
-                                className="outfit text-lg md:text-xl lg:text-2xl font-light text-gray-200 mb-10 max-w-2xl leading-relaxed animate-slideIn animation-delay-100 drop-shadow-lg"
+                                className="outfit text-sm sm:text-base md:text-xl lg:text-2xl font-light text-gray-200 mb-6 sm:mb-8 md:mb-10 max-w-2xl leading-relaxed animate-slideIn animation-delay-100 drop-shadow-lg"
                             >
                                 {slides[currentSlide].description}
                             </p>
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-wrap items-center gap-6 animate-slideIn animation-delay-200">
-                            <button className="outfit cursor-pointer flex items-center gap-2 px-8 py-4 bg-[var(--orange)] text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(227,116,37,0.5)] group">
+                        <div className="flex flex-wrap items-center gap-3 md:gap-6 animate-slideIn animation-delay-200">
+                            <button className="outfit cursor-pointer flex items-center gap-2 px-5 py-2.5 md:px-8 md:py-4 text-sm md:text-base bg-[var(--orange)] text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(227,116,37,0.5)] group">
                                 Discover More
-                                <ArrowBigRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                <ArrowBigRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <button className="outfit cursor-pointer px-8 py-4 rounded-full border border-white/30 text-white font-semibold flex items-center gap-2 hover:bg-white/10 hover:border-white/50 backdrop-blur-sm transition-all duration-300">
+                            <button className="outfit cursor-pointer px-5 py-2.5 md:px-8 md:py-4 text-sm md:text-base rounded-full border border-white/30 text-white font-semibold flex items-center gap-2 hover:bg-white/10 hover:border-white/50 backdrop-blur-sm transition-all duration-300">
                                 Our Products
                             </button>
                         </div>
@@ -189,28 +189,28 @@ const HeroSlider = () => {
             </div>
 
             {/* Navigation Arrows at Bottom Right */}
-            <div className="absolute bottom-35 right-6 md:right-12 z-20 flex gap-4 opacity-100 md:opacity-0 group-hover/slider:opacity-100 transition-opacity duration-500 pointer-events-auto">
+            <div className="absolute bottom-20 md:bottom-12 right-6 md:right-12 z-20 flex gap-3 md:gap-4 opacity-100 md:opacity-0 group-hover/slider:opacity-100 transition-opacity duration-500 pointer-events-auto">
                 <button
                     onClick={prevSlide}
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[var(--orange)] hover:border-[var(--orange)] transition-all duration-300 group cursor-pointer"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[var(--orange)] hover:border-[var(--orange)] transition-all duration-300 group cursor-pointer"
                 >
-                    <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+                    <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[var(--orange)] hover:border-[var(--orange)] transition-all duration-300 group cursor-pointer"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[var(--orange)] hover:border-[var(--orange)] transition-all duration-300 group cursor-pointer"
                 >
-                    <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
 
             {/* Indicators Bottom Center */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30 pointer-events-auto">
+            <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-30 pointer-events-auto">
                 {slides.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => goToSlide(index)}
-                        className={`transition-all duration-300 rounded-full cursor-pointer ${index === currentSlide ? 'w-8 h-2.5 bg-[var(--orange)]' : 'w-2.5 h-2.5 bg-white/50 hover:bg-white/80'}`}
+                        className={`transition-all duration-300 rounded-full cursor-pointer ${index === currentSlide ? 'w-6 h-2 md:w-8 md:h-2.5 bg-[var(--orange)]' : 'w-2 h-2 md:w-2.5 md:h-2.5 bg-white/50 hover:bg-white/80'}`}
                     ></button>
                 ))}
             </div>
